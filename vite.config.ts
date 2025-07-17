@@ -7,14 +7,10 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig((config) => {
   return {
-    // vite.config.ts
-export default defineConfig({
-  server: {
-    host: '0.0.0.0',
-    port: 8788,
-  },
-});
-
+    server: {
+      host: '0.0.0.0',
+      port: 8788,
+    },
     build: {
       target: 'esnext',
     },
@@ -34,7 +30,7 @@ export default defineConfig({
       tsconfigPaths(),
       chrome129IssuePlugin(),
       config.mode === 'production' && optimizeCssModules({ apply: 'build' }),
-    ],
+    ].filter(Boolean), // Removes any falsey plugins (like remixCloudflareDevProxy in test mode)
   };
 });
 
@@ -53,7 +49,6 @@ function chrome129IssuePlugin() {
             res.end(
               '<body><h1>Please use Chrome Canary for testing.</h1><p>Chrome 129 has an issue with JavaScript modules & Vite local development, see <a href="https://github.com/stackblitz/bolt.new/issues/86#issuecomment-2395519258">for more information.</a></p><p><b>Note:</b> This only impacts <u>local development</u>. `pnpm run build` and `pnpm run start` will work fine in this browser.</p></body>',
             );
-
             return;
           }
         }
