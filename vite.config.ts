@@ -4,6 +4,8 @@ import { defineConfig, type ViteDevServer } from 'vite';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import plugin from 'tailwindcss/plugin';
+
 
 export default defineConfig((config) => {
   return {
