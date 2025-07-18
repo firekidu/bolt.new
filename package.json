@@ -6,19 +6,19 @@
   "packageManager": "pnpm@9.4.0",
   "sideEffects": false,
   "type": "module",
-  "scripts": {
-    "dev": "remix vite:dev",
-    "build": "remix vite:build",
-    "start": "node server.js",
-    "preview": "pnpm run build && pnpm run start",
-    "deploy": "pnpm run build && echo 'Manual deploy step here'",
-    "test": "vitest --run",
-    "test:watch": "vitest",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "lint:fix": "npm run lint -- --fix",
-    "typecheck": "tsc",
-    "typegen": "wrangler types"
-  },
+"scripts": {
+  "build": "remix build",
+  "start": "node server.js",
+  "dev": "remix vite:dev",
+  "preview": "pnpm build && pnpm start",
+  "test": "vitest --run",
+  "test:watch": "vitest",
+  "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+  "lint:fix": "npm run lint -- --fix",
+  "typecheck": "tsc",
+  "typegen": "wrangler types",
+  "deploy": "pnpm build && wrangler pages deploy"
+},
   "engines": {
     "node": ">=18.18.0"
   },
