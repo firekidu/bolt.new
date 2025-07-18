@@ -2,5 +2,5 @@
 export default {
   serverBuildTarget: "node-cjs",
   server: "./server.js",
-  ignoredRouteFiles: ["**/.*"]
+  ignoredRouteFiles: ["**/.*"],
 };
